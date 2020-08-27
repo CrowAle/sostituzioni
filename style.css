@@ -1,0 +1,13 @@
+/* azzeramentto impostazioni di base */
+* {
+  box-sizing: border-box;
+  margin: 0px;s
+  padding: 0px;
+}
+.bgverde {
+  background-color: yellowgreen;
+}
+.bgrosso {
+  background-color: lightcoral;
+}
+

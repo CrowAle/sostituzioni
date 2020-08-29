@@ -1,8 +1,131 @@
 /* azzeramentto impostazioni di base */
 * {
   box-sizing: border-box;
-  margin: 0px;s
+  margin: 0px;
   padding: 0px;
+}
+body {
+  font: 1.6rem Helvetica;
+  height: 100vh;
+  margin: 0;
+}
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "main"
+    "footer";
+  grid-template-columns: 1fr;
+  grid-template-rows: 5rem auto 5rem;
+  height: 100%;
+}
+.header {
+  grid-area: header;
+  background-color: #ff0000;
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 2rem;
+  padding-left: 2rem;
+}
+.brand a {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: bolder;
+  text-decoration: none;
+}
+.header-links a {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+.header-links a:hover {
+  color: #0400ff;
+}
+.main {
+  grid-area: main;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.footer {
+  grid-area: footer;
+  background-color: #ff0000;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* dettagli */
+.boxprofilo {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+  padding: 1rem;
+  max-width: 20rem;
+  max-height: 20rem;
+  background-color: #0400ff;
+}
+.imageprofilo {
+  flex: 2 1 60rem;
+  background-color: #ff0000;
+  width: 10rem;
+  height: 10rem;
+  max-width: 10rem;
+  max-height: 10rem;
+  border-radius: 1rem;
+}
+.imageprofilo img {
+  max-width: 10rem;
+  max-height: 10rem;
+  width: 100%;
+}
+.nomeprofilo {
+  font-weight: bolder;
+  text-align: left;
+  margin
+}
+.infoprofilo {
+  font-size: 1rem;
+  width: 80%;
+  padding: 0.1rem;
+  /* flex: 1 1 10rem; */
+  background-color: aqua;
+}
+.btndisponibilita {
+  font-size: 1rem;
+  width: 80%;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 0.5rem;
+  background-color: rgb(0, 255, 21);
+  cursor: pointer;
+}
+.details-action {
+  flex: 2 1 20rem;
+}
+/* miei */
+.boxcentrale {
+  height: 100%;
+  width: 100%;
+  background: lightcoral;
+  margin: 2%;
+}
+.headera {
+  top: 0px;
+  width: 100%;
+  height: 5rem;
+  background-color: lightcyan;
+}
+.footera {
+  bottom: 0px;
+  background-color: black;
+  width: 100%;
+  height: 5rem;
 }
 .bgverde {
   background-color: yellowgreen;
@@ -10,4 +133,3 @@
 .bgrosso {
   background-color: lightcoral;
 }
-

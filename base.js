@@ -55,6 +55,11 @@ function boxprofilo(idprofilo, percorsoimg, nome, zona) {
   btndisponibilita.classList.add("btndisponibilita");
   btndisponibilita.classList.add("btn");
   btndisponibilita.setAttribute("id", "btndisponibilita" + idprofilo);
+  btndisponibilita.setAttribute(
+    "onclick",
+    "visualizzagiorni(" + idprofilo + ",`" + boxI.id + "`)"
+  );
+
   boxI.appendChild(btndisponibilita);
   let btndisponibilitaI = document.getElementById(
     "btndisponibilita" + idprofilo

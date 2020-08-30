@@ -29,7 +29,7 @@ function boxprofilo(idprofilo, percorsoimg, nome, zona) {
   if (percorsoimg !== undefined) {
     immag.setAttribute("src", "public/" + percorsoimg);
   } else {
-    immag.setAttribute("src", "public/" + "noimg.jpg");
+    immag.setAttribute("src", "public/" + "noimg.png");
   }
   immaginebox.setAttribute("alt", nome + " " + zona);
   boxI.appendChild(immaginebox);
@@ -53,20 +53,67 @@ function boxprofilo(idprofilo, percorsoimg, nome, zona) {
   //aggiungi bottone visualizza disponibilita
   let btndisponibilita = document.createElement("div");
   btndisponibilita.classList.add("btndisponibilita");
+  btndisponibilita.classList.add("btn");
   btndisponibilita.setAttribute("id", "btndisponibilita" + idprofilo);
   boxI.appendChild(btndisponibilita);
   let btndisponibilitaI = document.getElementById(
     "btndisponibilita" + idprofilo
   );
-  btndisponibilitaI.innerHTML = "Disponibilita";
+  btndisponibilitaI.innerHTML =
+    "<div>Disponibilita</div>" +
+    '<img src="public/caleico.jpg" heigth="25rem" width="25rem" style="align:centre;bottom:0px;"></img>';
+  //aggiungi bottone visualizza discipline
+  let btndiscipline = document.createElement("div");
+  btndiscipline.classList.add("btndiscipline");
+  btndiscipline.classList.add("btn");
+  btndiscipline.setAttribute("id", "btndiscipline" + idprofilo);
+  btndiscipline.setAttribute("onclick", "prova(" + idprofilo + ")");
+  boxI.appendChild(btndiscipline);
+  let btndisciplineI = document.getElementById("btndiscipline" + idprofilo);
+  btndisciplineI.innerHTML = "Discipline";
 }
 
 document.addEventListener("DOMContentLoaded", function (event) {
-  boxprofilo(1, undefined, "Alessio Busato", "Biella");
-  boxprofilo(2);
-  boxprofilo(3);
-  boxprofilo(4);
-  boxprofilo(5);
+  let arrayistruttori = [
+    {
+      id: 1,
+      img: "io.jpg",
+      name: "Alessio Busato",
+      luoghi:
+        "Biella, vercelli, torino, milano, novara, varese, cuneo,asti, asdas, da sd, dasd, dasd",
+    },
+    {
+      id: 2,
+      img: "io.jpg",
+      name: "Giuseppe Mazzini",
+      luoghi:
+        "Biella, vercelli, torino, milano, novara, varese,  asdas, da sd, dasd, dasd",
+    },
+    {
+      id: 3,
+      img: "io.jpg",
+      name: "Garibaldi FuFerito",
+      luoghi: "cuneo,asti, asdas, da sd, dasd, dasd",
+    },
+    {
+      id: 4,
+      img: "io.jpg",
+      name: "Giuseppe conte",
+      luoghi: "Biella, vercelli,  cuneo,asti, asdas, da sd, dasd, dasd",
+    },
+    {
+      id: 5,
+      img: "io.jpg",
+      name: "Alessandro Del Piero",
+      luoghi:
+        "Biella, vercelli, torino,  novara, varese, cuneo,asti, asdas, da sd, dasd, dasd",
+    },
+  ];
+  //renderizzo
+  arrayistruttori.map((item, index) =>
+    boxprofilo(item.id, item.img, item.name, item.luoghi)
+  );
+
   const rectorario = {
     colore: "#ffffff",
     coloreDisponibile: "yellowgreen",

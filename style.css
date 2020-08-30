@@ -5,7 +5,7 @@
   padding: 0px;
 }
 body {
-  font: 1.6rem Helvetica;
+  font: 1rem Helvetica;
   height: 100vh;
   margin: 0;
 }
@@ -48,7 +48,7 @@ body {
   grid-area: main;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
 }
 .footer {
   grid-area: footer;
@@ -59,51 +59,81 @@ body {
   align-items: center;
 }
 /* dettagli */
+@media (max-width: 992px) {
+}
+@media (min-width: 993px) {
+}
 .boxprofilo {
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
   padding: 1rem;
-  max-width: 20rem;
-  max-height: 20rem;
-  background-color: #0400ff;
+  width: 13rem;
+  height: auto;
+  /* max-height: 22rem; */
+  background-color: #eeeeee;
+  border: solid #999999 2px;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
 }
 .imageprofilo {
-  flex: 2 1 60rem;
-  background-color: #ff0000;
+  /* flex: 2 1 60rem; */
+  background-color: #d0ff00;
   width: 10rem;
   height: 10rem;
-  max-width: 10rem;
-  max-height: 10rem;
-  border-radius: 1rem;
+
+  border-radius: 2rem;
 }
 .imageprofilo img {
   max-width: 10rem;
   max-height: 10rem;
   width: 100%;
+  border: 0.3rem white solid;
+}
+
+.infoprofilo {
+  font-size: 0.9rem;
+  width: 100%;
+  padding: 0.3rem;
+
+  /* flex: 1 1 10rem; */
+  background-color: #ffffff;
 }
 .nomeprofilo {
   font-weight: bolder;
-  text-align: left;
-  margin
-}
-.infoprofilo {
-  font-size: 1rem;
-  width: 80%;
+  text-align: right;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  border-radius: 0.5rem;
   padding: 0.1rem;
-  /* flex: 1 1 10rem; */
-  background-color: aqua;
+  font-size: 1rem;
 }
-.btndisponibilita {
+.btn {
   font-size: 1rem;
   width: 80%;
   font-weight: bold;
   text-align: center;
   border-radius: 0.5rem;
-  background-color: rgb(0, 255, 21);
   cursor: pointer;
+  margin-top: 0.4rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.btndisponibilita {
+  margin-top: 1rem;
+  background-color: rgb(0, 255, 21);
+}
+.btndisponibilita:hover {
+  background-color: rgb(215, 255, 219);
+}
+.btndiscipline {
+  background-color: rgb(204, 0, 255);
+}
+.btndiscipline:hover {
+  background-color: rgb(238, 168, 255);
 }
 .details-action {
   flex: 2 1 20rem;

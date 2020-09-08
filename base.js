@@ -9,21 +9,95 @@ console.log();
 }
 ``; */
 //mettere tutto il codice all interno qui
+// ++++++++++++++++++++ VARIABILI  E ARRAY CON OCCORRENZE +++++++++
+//li prenderemo poi dal db
+let menu = [
+  { titolo: "Modifica Tuo profilo", icona: "profiloiconmodify.png", link: "" },
+  { titolo: "Tuo profilo", icona: "profiloicon.png", link: "" },
+  { titolo: "Pianifica orario", icona: "allenamentiicon.jpg", link: "" },
+  { titolo: "", icona: "caleico.jpg", link: "" },
+  { titolo: "", icona: "menucellicon.png", link: "" },
+  { titolo: "", icona: "noimg.jpg", link: "" },
+  { titolo: "", icona: "stretching.jpg", link: "" },
+];
+let discipline = ["zumba", "pilates", "jumping", "walking", "TRX"];
+let arrayistruttori = [
+  {
+    id: 1,
+    img: "io.jpg",
+    name: "Alessio Busato",
+    luoghi:
+      "Biella, vercelli, torino, milano, novara, varese, cuneo,asti, asdas, da sd, dasd, dasd",
+  },
+  {
+    id: 2,
+    img: "io.jpg",
+    name: "Giuseppe Mazzini",
+    luoghi:
+      "Biella, vercelli, torino, milano, novara, varese,  asdas, da sd, dasd, dasd",
+  },
+  {
+    id: 3,
+    img: "io.jpg",
+    name: "Garibaldi FuFerito",
+    luoghi: "cuneo,asti, asdas, da sd, dasd, dasd",
+  },
+  {
+    id: 4,
+    img: "io.jpg",
+    name: "Giuseppe conte",
+    luoghi: "Biella, vercelli,  cuneo,asti, asdas, da sd, dasd, dasd",
+  },
+  {
+    id: 5,
+    img: "io.jpg",
+    name: "Alessandro Del Piero",
+    luoghi:
+      "Biella, vercelli, torino,  novara, varese, cuneo,asti, asdas, da sd, dasd, dasd",
+  },
+  {
+    id: 6,
+    img: "io.jpg",
+    name: "Alessandro Del Piero",
+    luoghi:
+      "Biella, vercelli, torino,  novara, varese, cuneo,asti, asdas, da sd, dasd, dasd",
+  },
+  {
+    id: 7,
+    img: "io.jpg",
+    name: "Alessandro Del Piero",
+    luoghi:
+      "Biella, vercelli, torino,  novara, varese, cuneo,asti, asdas, da sd, dasd, dasd",
+  },
+];
+let giorni = [
+  "Lunedi",
+  "Martedi",
+  "Mercoledi",
+  "Giovedi",
+  "Venerdi",
+  "Sabato",
+  "Domenica",
+];
+// ++++++++++++++++++++ / VARIABILI  E ARRAY CON OCCORRENZE +++++++++
+attaccaX("centromain", "main", ["centromain"], "", "", "div");
+attaccaX("upcentromain", "centromain", ["upcentromain"], "hint", "", "div");
+attaccaX("downcentromain", "centromain", ["downcentromain"], "", "", "div");
 
+//*****************       CREA IL BOX PROFILO  */
 function boxprofilo(idprofilo, percorsoimg, nome, zona) {
   //Crea contenitore
   let box = document.createElement("div");
   box.setAttribute("id", "profilo" + idprofilo);
   box.classList.add("boxprofilo");
-  let main = document.getElementById("main"); //appendo al contenitore
-  main.appendChild(box);
+  let downcentromain = document.getElementById("downcentromain"); //appendo IL BOX AL CentroMAIN
+  downcentromain.appendChild(box);
   let boxI = document.getElementById("profilo" + idprofilo);
-  //inserisco immagine
-  let immaginebox = document.createElement("div");
+  //inserisco immagine CREO PRIMA IL SUO CONTENITORE POI APPENDO LIMMAGINE
 
+  let immaginebox = document.createElement("div");
   immaginebox.setAttribute("id", "imgcontainer" + idprofilo);
   immaginebox.classList.add("imageprofilo");
-
   let immag = document.createElement("img");
   immag.classList.add("imageprofilo");
   if (percorsoimg !== undefined) {
@@ -31,9 +105,10 @@ function boxprofilo(idprofilo, percorsoimg, nome, zona) {
   } else {
     immag.setAttribute("src", "public/" + "noimg.png");
   }
-  immaginebox.setAttribute("alt", nome + " " + zona);
+  immag.setAttribute("alt", nome + " " + zona);
   boxI.appendChild(immaginebox);
   let immagineboxI = document.getElementById("imgcontainer" + idprofilo);
+  immagineboxI.setAttribute("onClick", "alert('aggiungi funzione')");
   immagineboxI.appendChild(immag);
   //inserisco nome istruttore
   let istruttore = document.createElement("div");
@@ -50,16 +125,17 @@ function boxprofilo(idprofilo, percorsoimg, nome, zona) {
   boxI.appendChild(luogoistruttore);
   let luogoistruttoreI = document.getElementById("luogoistruttore" + idprofilo);
   luogoistruttoreI.innerHTML = zona;
-  //aggiungi bottone visualizza disponibilita
+  //aggiungo bottone visualizza disponibilita
+
   let btndisponibilita = document.createElement("div");
   btndisponibilita.classList.add("btndisponibilita");
   btndisponibilita.classList.add("btn");
+  btndisponibilita.classList.add("marginetopuno");
   btndisponibilita.setAttribute("id", "btndisponibilita" + idprofilo);
   btndisponibilita.setAttribute(
     "onclick",
     "visualizzagiorni(" + idprofilo + ",`" + boxI.id + "`)"
   );
-
   boxI.appendChild(btndisponibilita);
   let btndisponibilitaI = document.getElementById(
     "btndisponibilita" + idprofilo
@@ -67,60 +143,36 @@ function boxprofilo(idprofilo, percorsoimg, nome, zona) {
   btndisponibilitaI.innerHTML =
     "<div>Disponibilita</div>" +
     '<img src="public/caleico.jpg" heigth="25rem" width="25rem" style="align:centre;bottom:0px;"></img>';
+
   //aggiungi bottone visualizza discipline
   let btndiscipline = document.createElement("div");
   btndiscipline.classList.add("btndiscipline");
   btndiscipline.classList.add("btn");
   btndiscipline.setAttribute("id", "btndiscipline" + idprofilo);
-  btndiscipline.setAttribute("onclick", "prova(" + idprofilo + ")");
+  btndiscipline.setAttribute(
+    "onclick",
+    "visualizzaDiscipline(" + idprofilo + ", discipline,'" + boxI.id + "')"
+  );
   boxI.appendChild(btndiscipline);
   let btndisciplineI = document.getElementById("btndiscipline" + idprofilo);
   btndisciplineI.innerHTML = "Discipline";
 }
-
+//*****************    FINE  FUNZIONE CREA IL BOX PROFILO  */
+//++++++++++++++++++ QUANDO IL DOCUMENTO è CARICATO RENDERIZZO
 document.addEventListener("DOMContentLoaded", function (event) {
-  let arrayistruttori = [
-    {
-      id: 1,
-      img: "io.jpg",
-      name: "Alessio Busato",
-      luoghi:
-        "Biella, vercelli, torino, milano, novara, varese, cuneo,asti, asdas, da sd, dasd, dasd",
-    },
-    {
-      id: 2,
-      img: "io.jpg",
-      name: "Giuseppe Mazzini",
-      luoghi:
-        "Biella, vercelli, torino, milano, novara, varese,  asdas, da sd, dasd, dasd",
-    },
-    {
-      id: 3,
-      img: "io.jpg",
-      name: "Garibaldi FuFerito",
-      luoghi: "cuneo,asti, asdas, da sd, dasd, dasd",
-    },
-    {
-      id: 4,
-      img: "io.jpg",
-      name: "Giuseppe conte",
-      luoghi: "Biella, vercelli,  cuneo,asti, asdas, da sd, dasd, dasd",
-    },
-    {
-      id: 5,
-      img: "io.jpg",
-      name: "Alessandro Del Piero",
-      luoghi:
-        "Biella, vercelli, torino,  novara, varese, cuneo,asti, asdas, da sd, dasd, dasd",
-    },
-  ];
+  window.addEventListener("resize", () => {
+    let vh = window.innerHeight * 0.01;
+    let vw = window.innerWidth * 0.01;
+    let larghezzamenu = vh < vw ? vh : vw;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+    document.documentElement.style.setProperty(
+      "--larghezzamenu",
+      `${larghezzamenu}px`
+    );
+  });
   //renderizzo
   arrayistruttori.map((item, index) =>
     boxprofilo(item.id, item.img, item.name, item.luoghi)
   );
-
-  const rectorario = {
-    colore: "#ffffff",
-    coloreDisponibile: "yellowgreen",
-  };
+  visualizzamenu("idNav");
 });

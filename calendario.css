@@ -1,0 +1,109 @@
+/* TABELLA CALENDARIO */
+.contienicalendario {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+.contieniboard {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border-radius: 1rem;
+  border: #8888ff 10px solid;
+  opacity: 100%;
+  z-index: 20;
+}
+.titoloa {
+  display: flex;
+  width: 100%;
+  height: 3rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+.spazio {
+  width: 100%;
+  height: 0.5rem;
+  background-color: #00ff00;
+}
+.bgrossoc {
+  background-color: #ff0000;
+  height: fit-content;
+  margin-top: 2rem;
+}
+.paddingtitolo {
+  padding-top: 0.1rem;
+  font-weight: bold;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+@media (max-width: 2992px) {
+  .oscuraschermo {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: #555;
+    opacity: 90%;
+    z-index: 10;
+  }
+  .board {
+    /*  position: absolute; */
+    /* top: 0px; */
+    display: flex;
+    flex-direction: row;
+    width: 15rem;
+    height: fit-content;
+    z-index: 20;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    width: 5rem;
+  }
+}
+@media (min-width: 2993px) {
+  .board {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+  .mezzore {
+    /*  width: calc(100 / 16 * 0.01); */
+    width: 6.25%;
+  }
+}
+
+.mezzore {
+  background-color: #eeeeee;
+  display: flex;
+  margin: 2px;
+  justify-content: center;
+  border-radius: 1rem;
+  cursor: pointer;
+  border: solid white 3px;
+}
+.mezzore:hover {
+  background-color: #aaaaaa;
+}
+.lblue {
+  background-color: #dbffff;
+}
+.lred {
+  background-color: #ffe8e8;
+}
+.lyellow {
+  background-color: #fffee3;
+}
+/*FINE  TABELLA CALENDARIO */
